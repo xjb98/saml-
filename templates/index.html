@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户信息</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .user-info {
+            margin-bottom: 2rem;
+        }
+        .user-info h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        .info-item {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+        .logout-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .logout-button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <h2>用户信息</h2>
+            {% for key, value in user.items() %}
+            <div class="info-item">
+                <strong>{{ key }}:</strong> {{ value[0] if value is sequence and not value is string else value }}
+            </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-button">登出</a>
+    </div>
+</body>
+</html> 
