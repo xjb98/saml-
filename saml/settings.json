@@ -1,0 +1,30 @@
+{
+    "strict": false,
+    "debug": true,
+    "sp": {
+        "entityId": "http://localhost:5000/metadata",
+        "assertionConsumerService": {
+            "url": "https://localhost:5000/saml/acs",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        },
+        "singleLogoutService": {
+            "url": "https://localhost:5000/saml/sls",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress",
+        "x509cert": "saml/sp.cer",
+        "privateKey": "saml/sp.key"
+    },
+    "idp": {
+        "entityId": "YOUR_IDP_ENTITY_ID_FROM_AZURE_AD",
+        "singleSignOnService": {
+            "url": "YOUR_IDP_SSO_URL_FROM_AZURE_AD",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "singleLogoutService": {
+            "url": "YOUR_IDP_SLO_URL_FROM_AZURE_AD",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "x509cert": "YOUR_IDP_CERTIFICATE_CONTENT_FROM_AZURE_AD"
+    }
+}
